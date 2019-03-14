@@ -1,7 +1,7 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <strong><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</strong>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>
@@ -11,37 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, id: :post_title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description,  id: :post_description, class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :issue_type %>
+  <div class="form-group">
+    <%= form.label :issue_type, "Issue Type" %>
     <!--%= form.number_field :issue_type %-->
-    <%= form.select :issue_type, Post.issue_types.keys, selected: @post.issue_type %>
+    <%= form.select :issue_type, Post.issue_types.keys, selected: @post.issue_type, class: "form-control"%>
   </div>
 
-  <div class="field">
-    <%= form.label :priority %>
+  <div class="form-group">
+    <%= form.label :priority, "Priority" %>
     <!--%= form.number_field :priority %-->
-    <%= form.select :priority, Post.priorities.keys, selected: @post.priority %>
+    <%= form.select :priority, Post.priorities.keys, selected: @post.priority, class: "form-control"%>
 
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
+  <div class="form-group">
+    <%= form.label :status, "Status" %>
     <!--%= form.number_field :status %-->
-   <%= form.select :status, Post.statuses.keys, selected: @post.status %>
-
+    <%= form.select :status, Post.statuses.keys, selected: @post.status, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
    <%= form.label :user_id %>
    <%= form.select :user_id,
    options_for_select(User.all.collect {|u| ["#{u.lname},
@@ -51,6 +50,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary", value:"Save Bug" %>
+    <%= link_to 'Cancel', users_path, class: "btn btn-danger" %>
   </div>
 <% end %>
