@@ -1,3 +1,25 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@eaksens Sign out
+0
+0 0 eaksens/Bug-Tracking-App
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+Bug-Tracking-App/test/models/post_test.rb
+@eaksens eaksens Bug with User attached
+9cc002c on Feb 7
+We found a potential security vulnerability in one of your dependencies.
+Only the owner of this repository can see this message.
+Manage your notification settings or learn more about vulnerability alerts.
+
+90 lines (78 sloc)  2.21 KB
+
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
